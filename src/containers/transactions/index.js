@@ -87,17 +87,17 @@ export default function Transactions() {
     <Fragment>
       <Container>
         <Box sx={{mb: 4}}>
-          <Typography 
-            color="primary.main" 
-            variant="h4" 
-            sx={{ fontWeight: 'bold', mb: 1}} 
-            component="div"
-          >
-            Transactions & Wallet History
-          </Typography>
-          <Typography variant="body1" color="text.secondary">
-            ✅ ASSESSMENT_TASK_5: Web3 + Backend History Integration Complete
-          </Typography>
+              <Typography 
+                color="primary.main" 
+                variant="h4" 
+                sx={{ fontWeight: 'bold', mb: 1}} 
+                component="div"
+              >
+                Transactions & Wallet History
+              </Typography>
+              <Typography variant="body1" color="text.secondary">
+                Track your wallet balances, transaction history, and portfolio analytics
+              </Typography>
           
           <Box sx={{ mt: 3 }}>
             <WalletStatusBar />
@@ -183,11 +183,10 @@ export default function Transactions() {
                     📋 Transaction History Summary
                   </Typography>
                   
-                  <Alert severity="success" sx={{ mb: 3 }}>
-                    <strong>ASSESSMENT_TASK_5 Complete:</strong> Successfully integrated Web3 balances 
-                    with backend sales history. Found {history.summary?.totalTransactions || 0} transactions 
-                    with total volume of ${history.summary?.totalVolume || 0}.
-                  </Alert>
+                      <Alert severity="info" sx={{ mb: 3 }}>
+                        <strong>Transaction History:</strong> Successfully loaded wallet data with {history.summary?.totalTransactions || 0} transactions 
+                        and total volume of ${history.summary?.totalVolume || 0}.
+                      </Alert>
 
                   <Grid container spacing={2}>
                     {/* Sales History */}
