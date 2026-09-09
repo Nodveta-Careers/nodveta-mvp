@@ -1,6 +1,8 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import "styles/globals.css";
+import { useEffect } from "react";
+import { setupGlobalRPCErrorHandler } from "utils/rpcErrorDetector";
 
 const AppProviders = dynamic(() => import("components/AppProviders"), {
   ssr: false,
@@ -22,7 +24,16 @@ const RPCErrorNotification = dynamic(() => import("components/ui/RPCErrorNotific
   ssr: false,
 });
 
+const EmergencyRPCButton = dynamic(() => import("components/ui/EmergencyRPCButton"), {
+  ssr: false,
+});
+
 export default function App({ Component, pageProps }) {
+  // Initialize global RPC error handling
+  useEffect(() => {
+    setupGlobalRPCErrorHandler();
+  }, []);
+
   return (
     <>
       <Head>
@@ -39,6 +50,7 @@ export default function App({ Component, pageProps }) {
           </Layout>
         </AppProviders>
         <RPCErrorNotification />
+        <EmergencyRPCButton />
       </ErrorBoundary>
     </>
   );

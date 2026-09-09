@@ -3,14 +3,17 @@
  * Handles RPC endpoint issues and network configuration
  */
 
-// Reliable BSC RPC endpoints
+// Reliable BSC RPC endpoints (updated with fastest ones)
 const RELIABLE_BSC_RPCS = [
   'https://bsc-dataseed1.defibit.io/',
+  'https://bsc-dataseed2.defibit.io/', 
+  'https://bsc-dataseed3.defibit.io/',
   'https://bsc-dataseed4.defibit.io/',
   'https://bsc-dataseed2.ninicoin.io/',
   'https://bsc-mainnet.nodereal.io/v1/64a9df0874fb4a93b9d0a3849de012d3',
+  'https://binance.llamarpc.com',
   'https://bsc.rpc.blxrbdn.com/',
-  'https://binance.llamarpc.com'
+  'https://rpc.ankr.com/bsc'
 ];
 
 // BSC Network configuration
@@ -27,7 +30,7 @@ const BSC_NETWORK_CONFIG = {
 };
 
 /**
- * Fix MetaMask RPC issues by switching to a reliable endpoint
+ * Fix MetaMask RPC issues by forcing network reconfiguration with reliable endpoints
  */
 export async function fixMetaMaskRPC() {
   if (typeof window === 'undefined' || !window.ethereum) {
@@ -35,33 +38,47 @@ export async function fixMetaMaskRPC() {
   }
 
   try {
-    // Try to switch to BSC network with reliable RPC
+    console.log('🔧 Fixing MetaMask RPC endpoints...');
+    
+    // Step 1: Force add/update BSC network with reliable RPC endpoints
+    try {
+      await window.ethereum.request({
+        method: 'wallet_addEthereumChain',
+        params: [BSC_NETWORK_CONFIG],
+      });
+      console.log('✅ BSC network updated with reliable RPC endpoints');
+    } catch (addError) {
+      // Network might already exist, try to switch instead
+      console.log('Network exists, attempting to switch...');
+    }
+    
+    // Step 2: Force switch to the updated BSC network
     await window.ethereum.request({
       method: 'wallet_switchEthereumChain',
       params: [{ chainId: BSC_NETWORK_CONFIG.chainId }],
     });
-
-    console.log('Successfully switched to BSC network');
-    return { success: true, message: 'Network switched successfully' };
-  } catch (switchError) {
-    // If the network doesn't exist, add it with reliable RPC
-    if (switchError.code === 4902) {
-      try {
-        await window.ethereum.request({
-          method: 'wallet_addEthereumChain',
-          params: [BSC_NETWORK_CONFIG],
-        });
-        
-        console.log('Successfully added BSC network with reliable RPC');
-        return { success: true, message: 'Network added with reliable RPC endpoints' };
-      } catch (addError) {
-        console.error('Failed to add network:', addError);
-        return { success: false, error: addError.message };
-      }
+    
+    // Step 3: Verify the switch worked
+    const currentChainId = await window.ethereum.request({ method: 'eth_chainId' });
+    if (currentChainId === BSC_NETWORK_CONFIG.chainId) {
+      console.log('✅ Successfully switched to BSC with reliable RPC');
+      return { 
+        success: true, 
+        message: 'RPC endpoints fixed! Using reliable BSC network.',
+        chainId: currentChainId,
+        rpcEndpoint: RELIABLE_BSC_RPCS[0]
+      };
     } else {
-      console.error('Failed to switch network:', switchError);
-      return { success: false, error: switchError.message };
+      throw new Error(`Chain switch failed. Current: ${currentChainId}, Expected: ${BSC_NETWORK_CONFIG.chainId}`);
     }
+    
+  } catch (error) {
+    console.error('❌ Failed to fix RPC endpoints:', error);
+    return { 
+      success: false, 
+      error: error.message,
+      troubleshooting: 'Please manually switch to BSC network in MetaMask settings'
+    };
   }
 }
 
