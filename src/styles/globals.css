@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply m-0 p-0 scroll-smooth font-sans text-gray-900 bg-white;
+  }
+
+  p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+
+  a,
+  a:hover {
+    @apply text-inherit no-underline;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  .activeNavLink {
+    @apply bg-neutral-100 pointer-events-none;
+  }
+
+  .rounded {
+    @apply rounded-pill;
+  }
+
+  .fadeInUp {
+    @apply animate-in fade-in slide-in-from-bottom-4 duration-300;
+  }
+
+  .pulse {
+    @apply w-2.5 h-2.5 rounded-full border-[3px] border-white/70;
+    box-shadow: 0 0 0 rgba(220, 53, 69, 1);
+    animation: pulse 2s infinite;
+  }
+
+  /* Node Meta utility components */
+  .nm-page-shell {
+    @apply min-h-[50vh];
+  }
+
+  .nm-section {
+    @apply bg-neutral py-14 border-y border-neutral-200 mb-16;
+  }
+
+  .nm-section-inner {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .nm-card {
+    @apply rounded-[10px] bg-white shadow-card border border-neutral-100 p-4;
+  }
+
+  .nm-stat-bar {
+    @apply flex flex-wrap items-center justify-center gap-4 mb-6 p-4 rounded-xl bg-white shadow-card border border-neutral-100;
+  }
+
+  .nm-stat-item {
+    @apply flex flex-col items-center text-center min-w-[120px];
+  }
+
+  .nm-stat-label {
+    @apply text-xs font-medium uppercase tracking-wide text-gray-500;
+  }
+
+  .nm-stat-value {
+    @apply text-lg font-bold text-primary mt-1;
+  }
+
+  .nm-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .nm-badge-success {
+    @apply nm-badge bg-green-100 text-green-800;
+  }
+
+  .nm-badge-warning {
+    @apply nm-badge bg-amber-100 text-amber-800;
+  }
+
+  .nm-badge-error {
+    @apply nm-badge bg-red-100 text-red-800;
+  }
+
+  .nm-badge-info {
+    @apply nm-badge bg-sky-100 text-sky-800;
+  }
+
+  .nm-badge-neutral {
+    @apply nm-badge bg-neutral-100 text-gray-600;
+  }
+
+  .nm-alert {
+    @apply rounded-lg px-4 py-3 text-sm font-medium border;
+  }
+
+  .nm-alert-info {
+    @apply nm-alert bg-sky-50 text-sky-800 border-sky-200;
+  }
+
+  .nm-alert-error {
+    @apply nm-alert bg-red-50 text-red-800 border-red-200;
+  }
+
+  .nm-alert-success {
+    @apply nm-alert bg-green-50 text-green-800 border-green-200;
+  }
+
+  .nm-form-input {
+    @apply block w-full rounded-lg border-neutral-200 shadow-sm text-sm
+      focus:border-primary focus:ring-primary;
+  }
+
+  .nm-btn {
+    @apply inline-flex items-center justify-center rounded-pill px-5 py-2.5
+      text-sm font-semibold transition-colors duration-200;
+  }
+
+  .nm-btn-primary {
+    @apply nm-btn bg-primary text-white hover:bg-primary-dark
+      disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .nm-btn-outline {
+    @apply nm-btn border border-primary text-primary hover:bg-primary/5
+      disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .nm-wallet-bar {
+    @apply flex flex-wrap items-center gap-3 px-4 py-3 mb-4 rounded-xl
+      bg-white shadow-card border border-neutral-100;
+  }
+
+  .nm-wallet-address {
+    @apply font-mono text-sm text-gray-700 bg-neutral-50 px-2 py-1 rounded-md;
+  }
+
+  .nm-gradient-text {
+    @apply bg-nodemeta-gradient bg-clip-text text-transparent font-bold;
+  }
+}
+
+a.MuiButton-contained:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.MuiSnackbarContent-message {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate(0, 20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 1);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(220, 53, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+  }
+}

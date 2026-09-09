@@ -1,0 +1,135 @@
+# NodeMeta MVP - Production Docker Compose
+version: '3.8'
+
+services:
+  # NodeMeta Frontend & Backend
+  nodemeta-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    container_name: nodemeta-mvp
+    ports:
+      - "5000:5000"
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+      - NEXT_PUBLIC_MORALIS_USE_STUB=false
+      - MONGODB_URI=mongodb://mongo:27017/nodemeta-mvp
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - ./logs:/app/logs
+      - ./uploads:/app/uploads
+    depends_on:
+      - mongo
+      - redis
+    networks:
+      - nodemeta-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+  # MongoDB Database
+  mongo:
+    image: mongo:6.0
+    container_name: nodemeta-mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-nodemeta2024!}
+      MONGO_INITDB_DATABASE: nodemeta-mvp
+    volumes:
+      - mongo-data:/data/db
+      - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    ports:
+      - "27017:27017"
+    networks:
+      - nodemeta-network
+    restart: unless-stopped
+    command: mongod --auth --bind_ip_all
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: nodemeta-redis
+    volumes:
+      - redis-data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - nodemeta-network
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: nodemeta-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/ssl:/etc/nginx/ssl:ro
+      - ./logs/nginx:/var/log/nginx
+    depends_on:
+      - nodemeta-app
+    networks:
+      - nodemeta-network
+    restart: unless-stopped
+
+  # Monitoring - Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: nodemeta-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./docker/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    networks:
+      - nodemeta-network
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+
+  # Monitoring - Grafana
+  grafana:
+    image: grafana/grafana:latest
+    container_name: nodemeta-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-nodemeta2024}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./docker/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./docker/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    depends_on:
+      - prometheus
+    networks:
+      - nodemeta-network
+    restart: unless-stopped
+
+volumes:
+  mongo-data:
+    name: nodemeta-mongo-data
+  redis-data:
+    name: nodemeta-redis-data
+  prometheus-data:
+    name: nodemeta-prometheus-data
+  grafana-data:
+    name: nodemeta-grafana-data
+
+networks:
+  nodemeta-network:
+    name: nodemeta-network
+    driver: bridge

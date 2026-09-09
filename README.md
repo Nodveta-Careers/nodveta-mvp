@@ -1,0 +1,152 @@
+# NodeMeta Ecosystem MVP
+
+Welcome to the NodeMeta MVP - A scalable Web3 decentralized ecosystem engineered for real-world utility and sustainable decentralized finance (DeFi).
+
+## 🌟 About NodeMeta
+
+NodeMeta is powered by high-performance cross-chain blockchain infrastructure designed for:
+- **50,000+ TPS** with near-zero latency
+- **Cross-chain compatibility** across Ethereum, Polygon, BNB Chain, NEAR, and Arbitrum
+- **Real-world utility** connecting onchain assets to practical use cases
+- **Sustainable tokenomics** with NTE (Node Meta Energy) at the core
+
+## 🎯 Accessing Advanced Features
+
+The NodeMeta ecosystem includes comprehensive advanced features accessible through multiple entry points:
+
+### 📱 **Main Dashboard Access**
+1. **Navigation Bar**: Click "Advanced" in the main navigation menu
+2. **Direct URL**: Visit `/advanced` page  
+3. **Home Page**: Use the "Explore Advanced Features" cards on the main page
+
+### 🔗 **Direct Feature Access**
+- **AI Trading Bot**: `/advanced?tab=trading`
+- **Cross-Chain Bridge**: `/advanced?tab=bridge`
+- **Smart Commerce**: `/advanced?tab=commerce`
+- **Tokenomics Dashboard**: `/advanced?tab=tokenomics`
+
+### 📱 **Mobile Access**
+- All features are fully responsive and mobile-optimized
+- Use the hamburger menu (☰) on mobile devices
+- Touch-friendly interface with optimized spacing
+
+## 🎯 Key Ecosystem Verticals
+
+### 🖼️ Utility-Driven NFT Marketplace
+- Cross-chain, gas-free NFT trading
+- Real-world utility integration
+- Metaverse asset staking
+- Digital ownership redefined
+
+### 🛒 SmartCommerce Engine
+- Decentralized commerce platform
+- Seamless digital-to-physical transactions
+- NTE utility token integration
+- Real-world merchant adoption
+
+### 🤖 AI-Driven Trading Services
+- Advanced quantitative trading tools
+- Integration with top-tier exchanges (Binance, Bybit, MEXC)
+- Data-driven strategy automation
+- VIP bot trading services
+
+### ⚡ Decentralized Infrastructure
+- Modular smart contracts
+- Cross-chain synchronization
+- API connectors and bridges
+- Developer-friendly SDKs
+
+## 💎 NTE Tokenomics (BEP-20 on BSC)
+
+- **Contract Address**: `0x4c1b07164080A652cB1B7B1c61951c082c9e5FF8`
+- **Scarcity Engine**: 10-year block halving matrix (every 2 years)
+- **Community First**: 100% transparent reserve allocation
+- **Utility-Driven**: Powers all ecosystem transactions
+
+## 🚀 Tech Stack
+
+- **Frontend**: Next.js 16, React 18, TailwindCSS, TypeScript
+- **Web3**: ethers.js, web3-react, Cross-chain bridges
+- **Smart Contracts**: Solidity, Hardhat, BSC ecosystem
+- **Backend**: Node.js, Express, MongoDB
+- **Cross-Chain**: LayerZero integration ready
+
+## 🛠️ Development Setup
+
+```bash
+# Install dependencies
+npm install --legacy-peer-deps
+
+# Start development servers
+npm run dev
+
+# Individual services
+npm run dev:next    # Frontend (port 5000)
+npm run dev:server  # Backend API (port 4003)
+```
+
+## 📱 Application Features
+
+- **🔗 Multi-Wallet Connection**: MetaMask, WalletConnect support
+- **💰 Staking Platform**: Earn rewards with NTE staking
+- **🎨 NFT Marketplace**: Buy, sell, mint utility NFTs
+- **📊 Trading Interface**: DEX integration and portfolio management
+- **🛍️ Commerce Portal**: Digital asset commerce platform
+- **📈 Analytics Dashboard**: Real-time ecosystem metrics
+
+## 🌐 Network Configuration
+
+**BSC Mainnet (Primary)**
+- Chain ID: 56
+- RPC: https://bsc-dataseed.binance.org/
+- Symbol: BNB
+
+**Multi-Chain Support**
+- Ethereum Mainnet
+- Polygon
+- Arbitrum
+- NEAR Protocol
+
+## 🔐 Security & Audits
+
+- Smart contracts audited for production use
+- Real-world failure mode testing
+- Security-first development approach
+- Transparent on-chain operations
+
+## 📈 Roadmap Integration
+
+This MVP implements the core infrastructure for:
+- ✅ Token ecosystem foundation
+- ✅ Multi-chain wallet integration
+- ✅ NFT marketplace infrastructure  
+- ✅ Trading platform framework
+- ✅ Commerce engine foundation
+- 🔄 AI trading bot integration (in progress)
+- 🔄 Advanced cross-chain features (in progress)
+- 🔄 Metaverse integration (planned)
+
+## 🤝 Contributing
+
+We welcome contributions from the Web3 community:
+
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/YourFeature`
+3. Commit changes: `git commit -m 'Add YourFeature'`
+4. Push to branch: `git push origin feature/YourFeature`
+5. Open a Pull Request
+
+## 📚 Resources
+
+- **Website**: [node-meta.com](https://node-meta.com)
+- **Documentation**: [NodeMeta GitBook](https://node-meta-1.gitbook.io/node-meta-docs/)
+- **Whitepaper**: Available in documentation
+- **BSC Token**: `0x4c1b07164080A652cB1B7B1c61951c082c9e5FF8`
+
+## 📄 License
+
+This project is part of the NodeMeta ecosystem - Building scalable Web3 infrastructure for real-world decentralized finance.
+
+---
+
+**NodeMeta** - *Connecting blockchain technology to real-world utility* 🚀
