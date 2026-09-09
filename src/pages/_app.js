@@ -3,6 +3,7 @@ import Head from "next/head";
 import "styles/globals.css";
 import { useEffect } from "react";
 import { setupGlobalRPCErrorHandler } from "utils/rpcErrorDetector";
+import { initializeRPCBypass } from "utils/forceRPCBypass";
 
 const AppProviders = dynamic(() => import("components/AppProviders"), {
   ssr: false,
@@ -28,10 +29,15 @@ const EmergencyRPCButton = dynamic(() => import("components/ui/EmergencyRPCButto
   ssr: false,
 });
 
+const RPCTroubleBanner = dynamic(() => import("components/ui/RPCTroubleBanner"), {
+  ssr: false,
+});
+
 export default function App({ Component, pageProps }) {
-  // Initialize global RPC error handling
+  // Initialize global RPC error handling and bypass system
   useEffect(() => {
     setupGlobalRPCErrorHandler();
+    initializeRPCBypass();
   }, []);
 
   return (
@@ -49,6 +55,7 @@ export default function App({ Component, pageProps }) {
             <Component {...pageProps} />
           </Layout>
         </AppProviders>
+        <RPCTroubleBanner />
         <RPCErrorNotification />
         <EmergencyRPCButton />
       </ErrorBoundary>

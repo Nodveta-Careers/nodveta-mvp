@@ -4,6 +4,7 @@
  */
 
 import { fixMetaMaskRPC } from './metamaskHelper';
+import { emergencyRPCBypass } from './forceRPCBypass';
 
 // Global error tracker
 let errorCount = 0;
@@ -50,11 +51,34 @@ export async function autoFixRPCError(error) {
   }
   
   lastErrorTime = now;
+  
+  // Track errors for banner display
+  if (typeof localStorage !== 'undefined') {
+    localStorage.setItem('rpc_error_count', errorCount.toString());
+    localStorage.setItem('last_rpc_error', now.toString());
+  }
 
-  // Don't auto-fix if we've had too many errors recently
+  // Escalate to nuclear option after multiple failures
   if (errorCount > 3) {
-    console.log('Too many RPC errors, manual intervention required');
-    return { success: false, reason: 'Rate limited - manual fix required' };
+    console.log('🚨 Too many RPC errors, escalating to nuclear bypass...');
+    
+    try {
+      const nuclearResult = await emergencyRPCBypass();
+      if (nuclearResult.success) {
+        console.log('☢️ Nuclear bypass successful after escalation');
+        errorCount = 0; // Reset on successful nuclear fix
+        return {
+          success: true,
+          message: 'Nuclear RPC bypass activated after multiple failures',
+          isNuclear: true,
+          shouldReload: true
+        };
+      }
+    } catch (nuclearError) {
+      console.error('Nuclear bypass also failed:', nuclearError);
+    }
+    
+    return { success: false, reason: 'Rate limited - even nuclear option failed' };
   }
 
   autoFixInProgress = true;

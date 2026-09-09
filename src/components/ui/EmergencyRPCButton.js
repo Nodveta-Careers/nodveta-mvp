@@ -8,11 +8,14 @@ import { Button, Modal, message } from 'antd';
 import { WarningFilled, ToolOutlined } from '@ant-design/icons';
 import { fixMetaMaskRPC } from '../../utils/metamaskHelper';
 import InstantRPCFix from './InstantRPCFix';
+import NuclearRPCFix from './NuclearRPCFix';
 
 const EmergencyRPCButton = () => {
   const [visible, setVisible] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const [nuclearModalVisible, setNuclearModalVisible] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [failedAttempts, setFailedAttempts] = useState(0);
 
   useEffect(() => {
     // Listen for RPC errors globally
@@ -77,13 +80,29 @@ const EmergencyRPCButton = () => {
           window.location.reload();
         }, 2000);
       } else {
-        message.error(`Fix failed: ${result.error}`);
-        setModalVisible(true); // Show modal for manual fix
+        const attempts = failedAttempts + 1;
+        setFailedAttempts(attempts);
+        
+        if (attempts >= 2) {
+          message.error('Standard fixes failed. Nuclear option available.');
+          setNuclearModalVisible(true);
+        } else {
+          message.error(`Fix failed: ${result.error}`);
+          setModalVisible(true);
+        }
       }
     } catch (error) {
       message.destroy();
-      message.error('Quick fix failed. Please use manual fix.');
-      setModalVisible(true);
+      const attempts = failedAttempts + 1;
+      setFailedAttempts(attempts);
+      
+      if (attempts >= 2) {
+        message.error('Multiple fix attempts failed. Time for nuclear option.');
+        setNuclearModalVisible(true);
+      } else {
+        message.error('Quick fix failed. Please try manual fix.');
+        setModalVisible(true);
+      }
     }
   };
 
@@ -141,7 +160,7 @@ const EmergencyRPCButton = () => {
         </div>
       )}
 
-      {/* Detailed Fix Modal */}
+      {/* Standard Fix Modal */}
       <Modal
         title={
           <div className="flex items-center space-x-2">
@@ -151,11 +170,55 @@ const EmergencyRPCButton = () => {
         }
         open={modalVisible}
         onCancel={() => setModalVisible(false)}
-        footer={null}
+        footer={
+          failedAttempts >= 1 ? (
+            <div className="text-center">
+              <Button 
+                type="primary" 
+                danger 
+                onClick={() => {
+                  setModalVisible(false);
+                  setNuclearModalVisible(true);
+                }}
+                className="mt-4"
+              >
+                ☢️ Try Nuclear Fix
+              </Button>
+            </div>
+          ) : null
+        }
         width={600}
         centered
       >
         <InstantRPCFix />
+        
+        {failedAttempts >= 1 && (
+          <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded">
+            <div className="text-red-800 font-semibold mb-2">⚠️ Standard Fix Failed</div>
+            <div className="text-red-700 text-sm">
+              The standard RPC fix has failed {failedAttempts} time(s). 
+              Consider using the <strong>Nuclear Fix</strong> which completely bypasses MetaMask's RPC configuration.
+            </div>
+          </div>
+        )}
+      </Modal>
+
+      {/* Nuclear Fix Modal */}
+      <Modal
+        title={
+          <div className="flex items-center space-x-2">
+            <span className="text-2xl">☢️</span>
+            <span className="text-red-600 font-bold">Nuclear RPC Fix</span>
+          </div>
+        }
+        open={nuclearModalVisible}
+        onCancel={() => setNuclearModalVisible(false)}
+        footer={null}
+        width={700}
+        centered
+        className="nuclear-modal"
+      >
+        <NuclearRPCFix />
       </Modal>
     </>
   );
