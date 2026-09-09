@@ -33,6 +33,10 @@ const RPCTroubleBanner = dynamic(() => import("components/ui/RPCTroubleBanner"),
   ssr: false,
 });
 
+const InstantHotfix = dynamic(() => import("components/ui/InstantHotfix"), {
+  ssr: false,
+});
+
 export default function App({ Component, pageProps }) {
   // Initialize global RPC error handling and bypass system
   useEffect(() => {
@@ -58,6 +62,7 @@ export default function App({ Component, pageProps }) {
         <RPCTroubleBanner />
         <RPCErrorNotification />
         <EmergencyRPCButton />
+        <InstantHotfix />
       </ErrorBoundary>
     </>
   );
