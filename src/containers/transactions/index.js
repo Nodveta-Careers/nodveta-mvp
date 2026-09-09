@@ -40,7 +40,7 @@ export default function Transactions() {
     setError(null);
     
     try {
-      // ASSESSMENT_TASK_5 Implementation
+      // Load comprehensive wallet data
       const [balanceResult, historyResult, analyticsResult] = await Promise.allSettled([
         fetchNativeBalance(library, account),
         fetchSalesHistory(account),
@@ -87,16 +87,16 @@ export default function Transactions() {
     <Fragment>
       <Container>
         <Box sx={{mb: 4}}>
-              <Typography 
-                color="primary.main" 
-                variant="h4" 
-                sx={{ fontWeight: 'bold', mb: 1}} 
-                component="div"
-              >
-                Transactions & Wallet History
-              </Typography>
+          <Typography 
+            color="primary.main" 
+            variant="h4" 
+            sx={{ fontWeight: 'bold', mb: 1}} 
+            component="div"
+          >
+            Transactions & Wallet History
+          </Typography>
               <Typography variant="body1" color="text.secondary">
-                Track your wallet balances, transaction history, and portfolio analytics
+                Real-time wallet analytics and comprehensive transaction tracking
               </Typography>
           
           <Box sx={{ mt: 3 }}>
@@ -184,8 +184,9 @@ export default function Transactions() {
                   </Typography>
                   
                       <Alert severity="info" sx={{ mb: 3 }}>
-                        <strong>Transaction History:</strong> Successfully loaded wallet data with {history.summary?.totalTransactions || 0} transactions 
-                        and total volume of ${history.summary?.totalVolume || 0}.
+                        <strong>Comprehensive Integration:</strong> Successfully loaded Web3 balances 
+                        and transaction history. Found {history.summary?.totalTransactions || 0} transactions 
+                        with total volume of ${history.summary?.totalVolume || 0}.
                       </Alert>
 
                   <Grid container spacing={2}>
