@@ -96,8 +96,8 @@ const MainNavigation = () => {
               moreMenuLinks={moreMenuLinks}
               comingSoonLink={comingSoonLink}
               // bridgeLink={bridgeLink}
-              presaleLink={presaleLink}
-              privateLink={privateLink}
+              presaleLink={legacyLink}
+              privateLink={legacyLink}
               handleClickContracts={handleContractsDialogToggle} />
           </Box>
           <Box sx={{marginLeft: "auto"}}>
@@ -113,8 +113,8 @@ const MainNavigation = () => {
       </AppBar>
       <SideDrawer
         mainLinks={mainLinks}
-        presaleLink={presaleLink}
-        privateLink={privateLink}
+        presaleLink={legacyLink}
+        privateLink={legacyLink}
         moreMenuLinks={moreMenuLinks}
         comingSoonLink={comingSoonLink}
         onClose={handleDrawerToggle}

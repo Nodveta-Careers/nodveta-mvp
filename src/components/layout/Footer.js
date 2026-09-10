@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import { SITE_URL, SITE_EMAIL } from 'config/site';
+import { SITE_URL } from 'config/site';
 
 const socialLinks = [
   {
@@ -66,26 +66,6 @@ const Footer = () => {
             </IconButton>
           </Grid>
         ))}
-        <Grid item xs={2} md={1} sx={{textAlign: 'center'}}>
-          <IconButton
-            component="a"
-            href={SITE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Website"
-          >
-            <LanguageIcon />
-          </IconButton>
-        </Grid>
-        <Grid item xs={2} md={1} sx={{textAlign: 'center'}}>
-          <IconButton 
-            component="a"
-            href={`mailto:${SITE_EMAIL}`}
-            aria-label="Email"
-          >
-            <EmailIcon />
-          </IconButton>
-        </Grid>
       </Grid>
       <Typography 
         variant="caption"
