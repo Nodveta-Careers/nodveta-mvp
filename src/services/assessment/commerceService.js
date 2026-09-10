@@ -1,8 +1,8 @@
 /**
- * NodeMeta SmartCommerce Service
+ * Nodveta SmartCommerce Service
  * 
- * Decentralized commerce engine connecting digital assets to real-world transactions
- * Supports NTE payments, merchant integration, and cross-chain commerce
+ * Infrastructure commerce engine connecting digital assets to real-world transactions
+ * Supports reliable payments, merchant integration, and cross-chain commerce
  */
 
 import { apiPost, apiGet } from "./apiClient";
@@ -23,14 +23,14 @@ class SmartCommerceService {
         throw new Error('Wallet connection required for commerce transactions');
       }
 
-      // Enhance payload for NodeMeta ecosystem
+      // Enhance payload for Nodveta ecosystem
       const enhancedPayload = {
         ...payload,
         orderId: ethers.utils.id(`order-${Date.now()}-${Math.random()}`),
         timestamp: new Date().toISOString(),
         paymentToken: 'NTE',
         chainId: this.chainId,
-        platform: 'NodeMeta SmartCommerce',
+        platform: 'Nodveta SmartCommerce',
         fees: this.calculateFees(payload.price || payload.totalAmount || 0)
       };
 
@@ -41,7 +41,7 @@ class SmartCommerceService {
         success: true, 
         data,
         orderId: enhancedPayload.orderId,
-        message: 'Order submitted successfully to NodeMeta SmartCommerce'
+        message: 'Order submitted successfully to Nodveta SmartCommerce'
       };
     } catch (error) {
       console.error('SmartCommerce order error:', error);
@@ -60,7 +60,7 @@ class SmartCommerceService {
         merchants: merchants || [
           {
             id: 'merchant-1',
-            name: 'NodeMeta Electronics',
+            name: 'Nodveta Electronics',
             category: 'Electronics',
             rating: 4.8,
             products: 156,
@@ -96,7 +96,7 @@ class SmartCommerceService {
   calculateFees(amount) {
     const baseAmount = parseFloat(amount) || 0;
     return {
-      platformFee: (baseAmount * 0.025).toFixed(4), // 2.5% NodeMeta platform fee
+      platformFee: (baseAmount * 0.025).toFixed(4), // 2.5% Nodveta platform fee
       processingFee: (baseAmount * 0.01).toFixed(4), // 1% processing fee
       total: (baseAmount * 0.035).toFixed(4)
     };

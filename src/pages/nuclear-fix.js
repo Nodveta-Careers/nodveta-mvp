@@ -12,7 +12,7 @@ const NuclearFixPage = () => {
   return (
     <>
       <Head>
-        <title>Nuclear RPC Fix - NodeMeta Emergency</title>
+        <title>Nuclear RPC Fix - Nodveta Emergency</title>
         <meta name="description" content="Emergency nuclear fix for persistent MetaMask RPC connection issues" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/nodemeta-logo.png" />
@@ -71,7 +71,7 @@ const NuclearFixPage = () => {
           <Box sx={{ mt: 4, textAlign: 'center' }}>
             <Typography variant="body2" color="text.secondary">
               Need help? This fix was automatically generated to resolve persistent RPC issues.<br />
-              Contact NodeMeta support if problems continue after using the nuclear option.
+              Contact Nodveta support if problems continue after using the nuclear option.
             </Typography>
           </Box>
         </Container>

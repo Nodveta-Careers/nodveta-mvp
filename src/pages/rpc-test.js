@@ -216,7 +216,7 @@ const RPCTestPage = () => {
           </div>
 
           <div className="mt-4 text-center text-xs text-gray-500">
-            RPC Test Page - NodeMeta MVP v1.0.0
+            RPC Test Page - Nodveta Infrastructure v1.0.0
           </div>
         </Card>
       </div>

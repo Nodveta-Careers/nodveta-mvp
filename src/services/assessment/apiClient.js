@@ -1,7 +1,7 @@
 /**
- * NodeMeta Ecosystem API Client
+ * Nodveta Infrastructure API Client
  * 
- * Production-ready client for NodeMeta backend services
+ * Production-ready client for Nodveta backend services
  * Supports NFT marketplace, staking, commerce, and trading APIs
  */
 
@@ -51,7 +51,7 @@ class ApiClient {
         throw new Error('Request timeout');
       }
       
-      console.error(`NodeMeta API Error [${endpoint}]:`, error);
+      console.error(`Nodveta API Error [${endpoint}]:`, error);
       throw error;
     }
   }
@@ -85,7 +85,7 @@ class ApiClient {
     });
   }
 
-  // NodeMeta specific API methods
+  // Nodveta specific API methods
   async getNFTMintCount() {
     return this.get('/nft/total-mint-count');
   }

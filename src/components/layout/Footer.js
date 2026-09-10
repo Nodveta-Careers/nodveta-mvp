@@ -75,7 +75,7 @@ const Footer = () => {
       >
         {'Copyright © '} {new Date().getFullYear()}{' '}
         <a href={SITE_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-          Node Meta
+          Nodveta Technologies
         </a>
         . All rights reserved.
       </Typography>

@@ -14,7 +14,7 @@ Nodveta Technologies is a blockchain infrastructure company building reliable sy
 
 ## 🎯 Accessing Advanced Features
 
-The NodeMeta ecosystem includes comprehensive advanced features accessible through multiple entry points:
+The Nodveta infrastructure platform includes comprehensive features accessible through multiple entry points:
 
 ### 📱 **Main Dashboard Access**
 1. **Navigation Bar**: Click "Advanced" in the main navigation menu
@@ -141,14 +141,14 @@ We welcome contributions from the Web3 community:
 ## 📚 Resources
 
 - **Website**: [node-meta.com](https://node-meta.com)
-- **Documentation**: [NodeMeta GitBook](https://node-meta-1.gitbook.io/node-meta-docs/)
+- **Documentation**: [Nodveta Docs](https://docs.nodveta.com/)
 - **Whitepaper**: Available in documentation
 - **BSC Token**: `0x4c1b07164080A652cB1B7B1c61951c082c9e5FF8`
 
 ## 📄 License
 
-This project is part of the NodeMeta ecosystem - Building scalable Web3 infrastructure for real-world decentralized finance.
+This project showcases Nodveta Technologies' infrastructure capabilities - Building dependable blockchain infrastructure for production applications.
 
 ---
 
-**NodeMeta** - *Connecting blockchain technology to real-world utility* 🚀
+**Nodveta Technologies** - *Connecting applications to blockchain with confidence* 🚀

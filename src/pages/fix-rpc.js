@@ -12,7 +12,7 @@ const FixRPCPage = () => {
   return (
     <>
       <Head>
-        <title>Fix RPC Connection - NodeMeta</title>
+        <title>Fix RPC Connection - Nodveta</title>
         <meta name="description" content="Fix MetaMask RPC connection issues with reliable BSC endpoints" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/nodemeta-logo.png" />
@@ -57,7 +57,7 @@ const FixRPCPage = () => {
 
           <Box sx={{ mt: 4, textAlign: 'center' }}>
             <Typography variant="body2" color="text.secondary">
-              Need help? Contact NodeMeta support or check our documentation.
+              Need help? Contact Nodveta support or check our documentation.
             </Typography>
           </Box>
         </Container>
