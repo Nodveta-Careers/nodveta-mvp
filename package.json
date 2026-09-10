@@ -1,23 +1,23 @@
 {
-  "name": "nodemeta-ecosystem-mvp",
+  "name": "nodveta-infrastructure-mvp",
   "version": "1.0.0",
-  "description": "NodeMeta - Scalable Web3 decentralized ecosystem MVP",
+  "description": "Nodveta Technologies - Dependable infrastructure for onchain applications",
   "private": true,
-  "homepage": "https://node-meta.com",
+  "homepage": "https://nodveta.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Node-Meta-Careers/nodemeta-mvp"
+    "url": "https://github.com/Nodveta-Technologies/nodveta-mvp"
   },
   "keywords": [
-    "web3",
-    "defi",
-    "nft",
-    "blockchain",
-    "bsc",
-    "cross-chain",
-    "trading",
-    "staking",
-    "commerce"
+    "blockchain-infrastructure",
+    "transaction-execution",
+    "rpc-routing",
+    "blockchain-data",
+    "developer-tools",
+    "solana",
+    "evm",
+    "reliability",
+    "observability"
   ],
   "dependencies": {
     "@ant-design/icons": "^4.7.0",

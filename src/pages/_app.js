@@ -47,7 +47,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/nodemeta-logo.png" />
+        <link rel="icon" href="/nodveta-logo.png" />
         <title>Node Meta</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />

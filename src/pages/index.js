@@ -1,7 +1,7 @@
 export async function getServerSideProps() {
   return {
     redirect: {
-      destination: "/private-sale",
+      destination: "/infrastructure",
       permanent: false,
     },
   };

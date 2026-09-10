@@ -14,17 +14,17 @@ const socialLinks = [
   {
     label: 'Twitter',
     icon: <TwitterIcon />,
-    href: 'https://twitter.com/nodemeta'
+    href: 'https://twitter.com/nodvetatech'
   },
   {
     label: 'Telegram',
     icon: <TelegramIcon />,
-    href: 'https://t.me/nodemeta'
+    href: 'https://t.me/nodveta'
   },
   {
-    label: 'Facebook',
-    icon: <FacebookIcon />,
-    href: 'https://www.facebook.com/nodemeta'
+    label: 'GitHub',
+    icon: <LanguageIcon />,
+    href: 'https://github.com/nodveta-technologies'
   }
 ]
 
@@ -39,10 +39,10 @@ const Footer = () => {
         justifyContent="center"
         className="@container"
       >
-        <a href={SITE_URL} target="_blank" rel="noopener noreferrer" aria-label="Node Meta website">
+        <a href={SITE_URL} target="_blank" rel="noopener noreferrer" aria-label="Nodveta Technologies website">
           <img
-            src="/nodemeta-logo.png"
-            alt="Node Meta logo"
+            src="/nodveta-logo.png"
+            alt="Nodveta Technologies logo"
             width={40}
             height={40}
             className="animate-in fade-in duration-500"

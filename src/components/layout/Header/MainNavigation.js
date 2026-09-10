@@ -19,20 +19,15 @@ import SideDrawer from './SideDrawer';
 // ]
 
 const mainLinks = [
-  { label: "Gallery", href: "/gallery" },
-  { label: "Stake", href: "/stake" },
-  { label: "Commerce", href: "/commerce" },
-  { label: "Advanced", href: "/advanced" },
-  { label: "Transactions", href: "/transactions" },
+  { label: "Infrastructure", href: "/infrastructure" },
+  { label: "Relay", href: "/relay" },
+  { label: "Stream", href: "/stream" },
+  { label: "Developer", href: "/developer" },
+  { label: "Observe", href: "/observe" },
 ]
 
-const presaleLink = { 
-  label: "Pre-sale", 
-  href: "/pre-sale" 
-}
-
-const privateLink = { 
-  label: "Private-sale", 
+const legacyLink = { 
+  label: "Legacy Demo", 
   href: "/private-sale" 
 }
 
@@ -46,7 +41,9 @@ const comingSoonLink = [];
 
 const moreMenuLinks = [
   { label: "Transactions", href: "/transactions" },
-  { label: "About us", href: "/about" },
+  { label: "RPC Test", href: "/rpc-test" },
+  { label: "Documentation", href: "/docs" },
+  { label: "About", href: "/about" },
 ] 
 
 const MainNavigation = () => {
@@ -85,7 +82,7 @@ const MainNavigation = () => {
           <Box sx={{marginRight: "auto"}}>
             <Link href="/" style={{marginRight: "auto"}} className="inline-flex items-center" title={SITE_URL}>
               <img 
-                src="/nodemeta-logo.png" 
+                src="/nodveta-logo.png" 
                 alt="Node Meta logo" 
                 width="50"
                 height="50"

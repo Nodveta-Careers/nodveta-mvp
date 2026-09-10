@@ -7,10 +7,10 @@ export default function Document() {
         {/* CRITICAL: Load RPC fix before ANY other scripts */}
         <script src="/preemptive-rpc-fix.js" />
         
-        <link rel="icon" href="/nodemeta-logo.png" />
+        <link rel="icon" href="/nodveta-logo.png" />
         <meta
           name="description"
-          content="Node Meta — Web3 infrastructure ecosystem on BNB Smart Chain. https://node-meta.com"
+          content="Nodveta Technologies — Dependable infrastructure for onchain applications. Connecting applications to blockchain with confidence."
         />
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Roboto+Mono:wght@100&display=swap"

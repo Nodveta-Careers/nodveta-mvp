@@ -1,14 +1,16 @@
-# NodeMeta Ecosystem MVP
+# Nodveta Infrastructure MVP
 
-Welcome to the NodeMeta MVP - A scalable Web3 decentralized ecosystem engineered for real-world utility and sustainable decentralized finance (DeFi).
+Welcome to the Nodveta Infrastructure MVP - Dependable infrastructure for onchain applications built by Nodveta Technologies.
 
-## 🌟 About NodeMeta
+## 🌟 About Nodveta Technologies
 
-NodeMeta is powered by high-performance cross-chain blockchain infrastructure designed for:
-- **50,000+ TPS** with near-zero latency
-- **Cross-chain compatibility** across Ethereum, Polygon, BNB Chain, NEAR, and Arbitrum
-- **Real-world utility** connecting onchain assets to practical use cases
-- **Sustainable tokenomics** with NTE (Node Meta Energy) at the core
+**Tagline:** "Connecting applications to blockchain with confidence."
+
+Nodveta Technologies is a blockchain infrastructure company building reliable systems that connect applications with blockchain networks. We focus on:
+- **Transaction Infrastructure** - Reliable submission, simulation, and confirmation tracking
+- **Blockchain Data Services** - Real-time streams, event processing, and data integrity
+- **Developer Infrastructure** - SDKs, APIs, and tools for seamless blockchain integration  
+- **Network Observability** - Performance monitoring, health checks, and production alerts
 
 ## 🎯 Accessing Advanced Features
 
