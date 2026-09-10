@@ -4,27 +4,25 @@ import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
-import EmailIcon from '@mui/icons-material/Email';
-import TelegramIcon from '@mui/icons-material/Telegram';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import LanguageIcon from '@mui/icons-material/Language';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import { SITE_URL, SITE_EMAIL } from 'config/site';
 
 const socialLinks = [
   {
-    label: 'Twitter',
+    label: 'Facebook',
+    icon: <FacebookIcon />,
+    href: 'https://facebook.com/nodveta'
+  },
+  {
+    label: 'X (Twitter)',
     icon: <TwitterIcon />,
-    href: 'https://twitter.com/nodvetatech'
+    href: 'https://x.com/nodveta'
   },
   {
-    label: 'Telegram',
-    icon: <TelegramIcon />,
-    href: 'https://t.me/nodveta'
-  },
-  {
-    label: 'GitHub',
-    icon: <LanguageIcon />,
-    href: 'https://github.com/nodveta-technologies'
+    label: 'Instagram',
+    icon: <InstagramIcon />,
+    href: 'https://instagram.com/nodveta'
   }
 ]
 
