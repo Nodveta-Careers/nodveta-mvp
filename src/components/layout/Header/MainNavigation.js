@@ -26,8 +26,13 @@ const mainLinks = [
   { label: "Observe", href: "/observe" },
 ]
 
-const legacyLink = { 
-  label: "Legacy Demo", 
+const publicSaleLink = { 
+  label: "Public Sale", 
+  href: "/public-sale" 
+}
+
+const privateSaleLink = { 
+  label: "Private Sale", 
   href: "/private-sale" 
 }
 
@@ -96,8 +101,8 @@ const MainNavigation = () => {
               moreMenuLinks={moreMenuLinks}
               comingSoonLink={comingSoonLink}
               // bridgeLink={bridgeLink}
-              presaleLink={legacyLink}
-              privateLink={legacyLink}
+              presaleLink={publicSaleLink}
+              privateLink={privateSaleLink}
               handleClickContracts={handleContractsDialogToggle} />
           </Box>
           <Box sx={{marginLeft: "auto"}}>
@@ -113,8 +118,8 @@ const MainNavigation = () => {
       </AppBar>
       <SideDrawer
         mainLinks={mainLinks}
-        presaleLink={legacyLink}
-        privateLink={legacyLink}
+        presaleLink={publicSaleLink}
+        privateLink={privateSaleLink}
         moreMenuLinks={moreMenuLinks}
         comingSoonLink={comingSoonLink}
         onClose={handleDrawerToggle}
