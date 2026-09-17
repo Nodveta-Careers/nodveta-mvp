@@ -141,11 +141,6 @@ module.exports = {
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/container-queries"),
-    require('animatecss-tailwind-adapter')({
-      duration: '500ms', // Change default animation duration
-      delay: '1s', // Add default delay
-    iterationCount: '1' // Make animations repeat infinitely
-    }),
     require("tailwindcss-animate"),
     ...(process.env.NODE_ENV === "development"
       ? [require("tailwindcss-debug-screens")]
